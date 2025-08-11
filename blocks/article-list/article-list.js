@@ -51,7 +51,7 @@ function createHTMLForBlock(json){
             anchorTag.append(titleSpan);
             anchorTag.append(dateSpan);
 
-            anchorTag.href='https://main--capstone-eds--srinivas-bn.aem.live'+page.path;
+            anchorTag.href='https://main--capstone-eds--aritradeb2000.aem.live'+page.path;
 
             listItem.append(anchorTag);
            allListItems.push(listItem);
