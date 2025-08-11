@@ -1,0 +1,116 @@
+.form-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    max-width: 340px;
+    margin: -100px auto 0;
+    padding: 20px 20px;
+    background-color: #202020;
+    font-family: var(
+        --fontFamilySerif,
+        "Asar",
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif
+    );
+    color: #ebebeb;
+}
+ 
+.form-wrapper .form.block form {
+    padding-left: 20px;
+}
+ 
+/* Field styling */
+.field-wrapper {
+    margin-bottom: 10px;
+}
+ 
+/* Labels */
+.field-wrapper > label {
+    display: inline-block;
+    font-size: 18px;
+    padding-right: 10px;
+}
+ 
+.field-wrapper > label:first-child:not(:only-child)::after {
+    content: " :";
+    color: #ebebeb;
+}
+ 
+/* Headings */
+.field-wrapper > h4 {
+    display: inline-block;
+    font-weight: 500;
+    border-bottom: #ffea00 solid;
+    padding-bottom: 3px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+ 
+/* Checkboxes */
+.field-wrapper > input[type="checkbox"] {
+    margin-left: 30px;
+    margin-right: 5px;
+}
+ 
+/* Input fields */
+.field-wrapper input[type="text"],
+.field-wrapper input[type="email"],
+.field-wrapper select,
+.field-wrapper textarea {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 3px;
+    padding: 5px;
+    border: 1px solid #555;
+    background-color:white;
+    color: #fff;
+}
+ 
+/* Horizontal rule */
+.field-wrapper hr {
+    background-image: linear-gradient(180deg, #696969, #202020);
+    border: 0;
+    height: 2px;
+    margin: 8px 0;
+    margin-left: -10%;
+}
+ 
+/* Button */
+.field-wrapper .button-container {
+    margin-top: 15px;
+    text-align: center;
+}
+ 
+.field-wrapper button {
+    font-size: 18px;
+    font-family: var(
+        --fontFamilySansSerif,
+        "Source Sans Pro",
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif
+    );
+    background-color: #ffea00;
+    color: #202020;
+    border: none;
+    padding: 8px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+ 
+.field-wrapper button:hover {
+    background-color: #e6d200;
+}
+ 
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .form-container {
+        margin-top: -50px;
+        max-width: 90%;
+    }
+}
