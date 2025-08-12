@@ -1,5 +1,5 @@
-import { getMetadata } from "../../scripts/aem.js";
-import { loadFragment } from "../fragment/fragment.js";
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
 /**
  * loads and decorates the footer
@@ -7,22 +7,22 @@ import { loadFragment } from "../fragment/fragment.js";
  */
 export default async function decorate(block) {
   // load footer as fragment
-  const footerMeta = getMetadata("footer");
+  const footerMeta = getMetadata('footer');
   const footerPath = footerMeta
     ? new URL(footerMeta, window.location).pathname
-    : "/footer";
+    : '/footer';
   const fragment = await loadFragment(footerPath);
 
   console.log(block);
 
-  block.textContent = "";
-  const footerDivContainer = document.createElement("div");
-  const footerSocialDiv = document.createElement("div");
-  const footerSocialTextDiv = document.createElement("div");
-  const footerSocialIconsDiv = document.createElement("div");
-  const footerDivSpace = document.createElement("div");
-  footerDivSpace.classList.add("blank-space");
-  const footerClasses = ["footer-nav", "footer-text"];
+  block.textContent = '';
+  const footerDivContainer = document.createElement('div');
+  const footerSocialDiv = document.createElement('div');
+  const footerSocialTextDiv = document.createElement('div');
+  const footerSocialIconsDiv = document.createElement('div');
+  const footerDivSpace = document.createElement('div');
+  footerDivSpace.classList.add('blank-space');
+  const footerClasses = ['footer-nav', 'footer-text'];
   let index = 0;
   while (fragment.firstElementChild) {
     fragment.firstElementChild.classList.add(footerClasses[index]);
@@ -34,9 +34,9 @@ export default async function decorate(block) {
   }
 
   const socials = footerDivContainer.querySelector(
-    ".default-content-wrapper p:last-child",
+    '.default-content-wrapper p:last-child',
   );
-  const socialIcons = socials.querySelectorAll("a");
+  const socialIcons = socials.querySelectorAll('a');
 
   footerSocialTextDiv.textContent = socials.textContent;
   socialIcons.forEach((icon) => {
@@ -49,7 +49,7 @@ export default async function decorate(block) {
   socials.remove();
 
   footerDivContainer
-    .querySelector(".default-content-wrapper")
+    .querySelector('.default-content-wrapper')
     .append(footerSocialDiv);
   block.append(footerDivContainer);
 }

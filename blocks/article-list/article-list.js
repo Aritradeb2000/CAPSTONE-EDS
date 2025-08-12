@@ -20,30 +20,31 @@ function getDate(page) {
   const date = new Date(timestamp * 1000);
 
   const options = {
-    weekday: "long",
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
+    weekday: 'long',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
   };
 
-  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
-  const parts = formattedDate.split(" ");
-  parts[2] = parts[2].replace(",", "");
+  const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+  const parts = formattedDate.split(' ');
+  parts[2] = parts[2].replace(',', '');
   const finalFormattedDate = `${parts[0].toUpperCase()} ${parts[1]} ${parts[2].toUpperCase()} ${parts[3]}`;
   return finalFormattedDate;
 }
 
 function createHTMLForBlock(json) {
-  const unorderedList = document.createElement("ul");
+  const unorderedList = document.createElement('ul');
   const allListItems = [];
   json.forEach((page) => {
-    if (page.path.startsWith("/magazine/") && page.path != "/magazine/") {
-      const listItem = document.createElement("li");
-      const anchorTag = document.createElement("a");
-      const titleSpan = document.createElement("span");
-      titleSpan.classList.add("pageTitle");
-      const dateSpan = document.createElement("span");
-      dateSpan.classList.add("pageDate");
+    // eslint-disable-next-line eqeqeq
+    if (page.path.startsWith('/magazine/') && page.path != '/magazine/') {
+      const listItem = document.createElement('li');
+      const anchorTag = document.createElement('a');
+      const titleSpan = document.createElement('span');
+      titleSpan.classList.add('pageTitle');
+      const dateSpan = document.createElement('span');
+      dateSpan.classList.add('pageDate');
 
       titleSpan.innerHTML = getTitle(page);
       dateSpan.innerHTML = getDate(page);
@@ -51,8 +52,7 @@ function createHTMLForBlock(json) {
       anchorTag.append(titleSpan);
       anchorTag.append(dateSpan);
 
-      anchorTag.href =
-        "https://main--capstone-eds--aritradeb2000.aem.live" + page.path;
+      anchorTag.href = `https://main--capstone-eds--aritradeb2000.aem.live${page.path}`;
 
       listItem.append(anchorTag);
       allListItems.push(listItem);
@@ -60,7 +60,7 @@ function createHTMLForBlock(json) {
   });
 
   const extractDate = (li) => {
-    const dateText = li.querySelector(".pageDate").textContent.trim();
+    const dateText = li.querySelector('.pageDate').textContent.trim();
     return new Date(dateText);
   };
 
@@ -73,7 +73,7 @@ function createHTMLForBlock(json) {
 export default async function decorate(block) {
   const articles = block.querySelector('a[href$=".json"]');
   const json = await getQueryIndexJson(articles.href, null);
-  block.innerHTML = "";
+  block.innerHTML = '';
   const blockHTML = createHTMLForBlock(json);
   block.append(blockHTML);
 }
