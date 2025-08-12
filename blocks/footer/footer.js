@@ -13,6 +13,7 @@ export default async function decorate(block) {
     : '/footer';
   const fragment = await loadFragment(footerPath);
 
+  // eslint-disable-next-line no-console
   console.log(block);
 
   block.textContent = '';
@@ -27,6 +28,7 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) {
     fragment.firstElementChild.classList.add(footerClasses[index]);
     footerDivContainer.append(fragment.firstElementChild);
+    // eslint-disable-next-line eqeqeq
     if (index == 0) {
       footerDivContainer.append(footerDivSpace);
     }

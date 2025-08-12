@@ -8,9 +8,10 @@ function closedOnEscape(e) {
   if (e.code === 'Escape') {
     const utility = document.getElementById('utility');
     const navUtility = utility.querySelector('.nav-utility');
+    // eslint-disable-next-line no-undef
     const languageExpanded = lang.querySelector('[aria-expanded="true"]');
     if (languageExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
+      // eslint-disable-next-line no-use-before-define, no-undef
       toggleAlllangSections(lang);
       languageExpanded.focus();
     } else if (!isDesktop.matches) {
@@ -135,6 +136,7 @@ export default async function decorate(block) {
 
   while (fragment.firstElementChild && totalChildren > 2) {
     nav.append(fragment.firstElementChild);
+    // eslint-disable-next-line no-plusplus
     totalChildren--;
   }
 
@@ -245,6 +247,7 @@ export default async function decorate(block) {
     }
   });
   window.addEventListener('scroll', () => {
+    // eslint-disable-next-line no-shadow
     const nav = document.querySelector('nav');
 
     if (window.scrollY > 0) {
@@ -264,6 +267,7 @@ export default async function decorate(block) {
   block.prepend(utility);
   block.append(regForm);
   nav.setAttribute('aria-expanded', 'false');
+  // eslint-disable-next-line no-undef
   decorateIcons(block);
   block.append(nav);
 }
