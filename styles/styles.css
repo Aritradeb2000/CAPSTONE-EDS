@@ -205,7 +205,7 @@ button:disabled:hover {
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
+  background-color: yellow;
   border: 2px solid currentcolor;
   color: var(--text-color);
 }
