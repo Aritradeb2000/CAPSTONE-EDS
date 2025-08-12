@@ -27,7 +27,7 @@
                     content: "";
                     display: block;
                     position: relative;
-                    top: .25em;
+                    top: 0.25em;
                     width: 5pc;
                 }
             }
@@ -42,12 +42,12 @@
     }
 
     .not-a-quote {
-        font-weight:600;
-        font-family: 'Asar';
+        font-weight: 600;
+        font-family: "Asar";
 
-        @media (width>1024px){
-            p{
-                width:22ch;
+        @media (width>1024px) {
+            p {
+                width: 22ch;
             }
         }
     }
