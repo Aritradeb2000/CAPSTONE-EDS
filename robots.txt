@@ -1,6 +1,32 @@
 # Allow all web crawlers to access all content
 User-agent: *
 Allow: /
+Disallow:
+
+# Explicitly allow major search engines
+User-agent: Googlebot
+Allow: /
+Disallow:
+
+User-agent: Bingbot
+Allow: /
+Disallow:
+
+User-agent: Slurp
+Allow: /
+Disallow:
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow:
+
+User-agent: Baiduspider
+Allow: /
+Disallow:
+
+User-agent: YandexBot
+Allow: /
+Disallow:
 
 # Sitemap location
 Sitemap: https://main--capstone-eds--aritradeb2000.aem.page/sitemap.xml
