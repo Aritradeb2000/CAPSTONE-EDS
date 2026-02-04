@@ -71,7 +71,7 @@ function createHTMLForBlock(json) {
   return unorderedList;
 }
 export default async function decorate(block) {
-  const articles = block.querySelector('a[href$=\'.json\']');
+  const articles = block.querySelector("a[href$='.json']");
   const json = await getQueryIndexJson(articles.href, null);
   block.innerHTML = '';
   const blockHTML = createHTMLForBlock(json);
