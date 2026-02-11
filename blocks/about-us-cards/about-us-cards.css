@@ -4,6 +4,7 @@
 
         > h1 {
             font-weight: normal;
+            /*eslint-disable-next-line*/
             margin: 13.5px 15px 13.5px;
             font-size: 40px;
         }
